@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RankInAll.Contract", "JudgeInAll.Contract\RankInAll.Contract.csproj", "{E594C814-C5E1-4EEB-AE24-1985FE2C250A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RankInAll.Core", "RankInAlll.Core\RankInAll.Core.csproj", "{69D07E76-6720-4159-BA71-9A62B02A7CA4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRank", "TestPojRank\TestRank.csproj", "{0B8FE208-16FC-4B57-A1E8-F2D54C310B21}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E594C814-C5E1-4EEB-AE24-1985FE2C250A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E594C814-C5E1-4EEB-AE24-1985FE2C250A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E594C814-C5E1-4EEB-AE24-1985FE2C250A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E594C814-C5E1-4EEB-AE24-1985FE2C250A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69D07E76-6720-4159-BA71-9A62B02A7CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69D07E76-6720-4159-BA71-9A62B02A7CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69D07E76-6720-4159-BA71-9A62B02A7CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
