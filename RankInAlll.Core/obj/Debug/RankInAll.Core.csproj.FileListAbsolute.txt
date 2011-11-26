@@ -1,0 +1,7 @@
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\obj\Debug\ResolveAssemblyReference.cache
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\RankInAlll.Core.dll
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\RankInAlll.Core.pdb
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\JudgeInAll.Utility.dll
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\JudgeInAll.Utility.pdb
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\obj\Debug\RankInAlll.Core.dll
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\obj\Debug\RankInAlll.Core.pdb
