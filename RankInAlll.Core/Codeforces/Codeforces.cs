@@ -166,7 +166,8 @@ namespace RankInAll.Core.Codeforces
             point=0;
             timeOrTimes=0;
 //            ac
-//<td problemId="(\d+?)" title="Passed System Test, \+, (.*?)">\s*?<span class="cell-passed-system-
+//<td problemId="(\d+?)" title="Passed System Test, \+, (.*?)">\s*?<span class="cell-passed-system-
+
 //test">(\d*?)</span>\s*?<span class="cell-time">(\d\d:\d\d)</span>\s*?</td>
 //$1 problemId
 //$2 language
@@ -174,7 +175,8 @@ namespace RankInAll.Core.Codeforces
 //$4 time
 
 //wa
-//<td problemId="(\d*?)" title="Failed System Test, (.*?)">\s*?<span class="cell-failed-system-
+//<td problemId="(\d*?)" title="Failed System Test, (.*?)">\s*?<span class="cell-failed-system-
+
 //test">\s*?(-\d*?)\s*?</span>\s*?</td>
 //$1 problemId
 //$2 language

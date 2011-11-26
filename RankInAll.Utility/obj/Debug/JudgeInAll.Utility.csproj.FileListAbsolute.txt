@@ -1,0 +1,10 @@
+F:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\bin\Debug\JudgeInAll.Utility.dll
+F:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\bin\Debug\JudgeInAll.Utility.pdb
+F:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\obj\Debug\ResolveAssemblyReference.cache
+F:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\obj\Debug\JudgeInAll.Utility.dll
+F:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\obj\Debug\JudgeInAll.Utility.pdb
+D:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\bin\Debug\JudgeInAll.Utility.dll
+D:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\bin\Debug\JudgeInAll.Utility.pdb
+D:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\obj\Debug\ResolveAssemblyReference.cache
+D:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\obj\Debug\JudgeInAll.Utility.dll
+D:\MyCodes\TeenagerStudio\JudgeInAll\JudgeInAll.Utility\obj\Debug\JudgeInAll.Utility.pdb
