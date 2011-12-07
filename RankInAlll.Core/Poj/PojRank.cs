@@ -8,12 +8,30 @@ using RankInAll.Utility;
 
 namespace RankInAll.Core.Poj
 {
-    class PojRank : IOjRank
+    class PojRank 
     {
         public PojRank()
         {
 
         }
+        public DateTime GetLastAc(string user_id)
+        {
+            string web = Http.Get(string.Format("http://poj.org/status?result=0&user_id={0}", user_id), null);
+            web.RemoveAllTags();
+            if (web == null)
+            {
+                return new DateTime();//to do
+            }
+            Regex r = new Regex(@"</font></td><td>.*?</td><td>.*?</td><td>.*?</td><td>.*?</td><td>(.*?)</td></tr>",
+                RegexOptions.Compiled);
+            var result = r.Match(web);
+            if (!result.Success)
+            {
+                return new DateTime();//todo
+            }
+            return Convert.ToDateTime(result.Result("$1"));
+        }
+
         public OjRankEntity GetUserStatus(string user_id)
         {
             OjRankEntity ojRankEntity = new OjRankEntity();
@@ -98,46 +116,6 @@ namespace RankInAll.Core.Poj
             return list;
         }
 
-        private void CreateOjRanksBySchool()
-        {
-            //Console.WriteLine("hello world!");
-            string web = GetSearchResultByShcool("njust");
-            string regexString = @"<td width=10%>(\d+)</td><td><a href=userstatus\?user_id=([^>]+)>\w+</a></td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(\d+)</td><td>(\d+)</td></regex>";
-            Regex reg = new Regex(regexString, RegexOptions.Compiled);
-
-            //var matchs =reg.Match(web);
-
-            IList<PojRank> PojRanks = new List<PojRank>();
-
-            var matchs = reg.Matches(web);
-            Console.WriteLine("count=" + matchs.Count);
-            foreach (Match match in matchs)
-            {
-                Console.WriteLine(match.Result("$1"));
-                Console.WriteLine(match.Result("$2"));
-                Console.WriteLine(match.Result("$3"));
-                Console.WriteLine(match.Result("$4"));
-                Console.WriteLine(match.Result("$5"));
-                Console.WriteLine(match.Result("$6"));
-                Console.WriteLine(match.Result("$7"));
-
-                OjRankEntity pojRankEntity = new OjRankEntity();
-                pojRankEntity.No = Convert.ToInt32(match.Result("$1"));
-                pojRankEntity.UserName = match.Result("$2").Trim();
-                pojRankEntity.NickName = match.Result("$3").Trim();
-                pojRankEntity.School = match.Result("$4").Trim();
-                pojRankEntity.Email = match.Result("$5").Trim();
-                pojRankEntity.Ac = Convert.ToInt32("$6");
-                pojRankEntity.Submit = Convert.ToInt32("$7");
-
-            }
-
-
-            Console.WriteLine("end!");
-            Console.Beep();
-            Console.ReadLine();
-
-        }
         private OjRankEntity CreateOjRank(string web)
         {
             string regex = @"<td width=10%>(\d+)</td><td><a href=userstatus\?user_id=([^>]+)>\w+</a></td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(\d+)</td><td>(\d+)</td>";
@@ -182,17 +160,7 @@ namespace RankInAll.Core.Poj
             return Http.Get(url, null);
         }
 
-        //private static string ReplaceTag(string str)
-        //{
-        //    str = str.RemoveTagAndContent("script");
-        //    str = str.RemoveTagAndContent("head");
-        //    str = str.RemoveTagAndContent("form");
-        //    str = str.RemoveTag("p");
-        //    str = str.RemoveTag("a");
-        //    str = str.RemoveTag("font");
-        //    str = str.RemoveAttribute("regexPattern");
-        //    str = str.RemoveAttribute("td");
-        //    return str;
-        //}
+     
+        
     }
 }

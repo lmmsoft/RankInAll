@@ -108,5 +108,17 @@ namespace RankInAll.Core.Hdoj
             string url = string.Format("http://acm.hdu.edu.cn/search.php?field=author&key={0}", str);
             return Http.Get(url, null);
         }
+        public DateTime GetLastAC(string user_id)
+        {
+            string web = Http.Get(string.Format("http://acm.hdu.edu.cn/status.php?first=&pid=&user={0}&lang=0&status=0", user_id), null);
+            Regex r = new Regex(@"><td height=22px>\d+</td><td>(?<SubmitTime>.*?)</td><",
+                RegexOptions.Compiled);
+            var result = r.Match(web);
+            if (!result.Success)
+            {
+                return new DateTime();//todo xx
+            }
+            return Convert.ToDateTime(result.Groups["SubmitTime"].Value);
+        }
     }
 }

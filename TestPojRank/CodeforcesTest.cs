@@ -167,13 +167,22 @@ namespace TestRank
             List<CfContestDetail> actual;
             actual = target.GetContestDetails(contestId);
 
+            List<Tuple<int, string>> list = new List<Tuple<int, string>>();
+            list.Add(Tuple.Create<int,string>(488,"00:06"));
+            list.Add(Tuple.Create<int,string>(908,"00:23"));
+            list.Add(Tuple.Create<int,string>(1104,"01:06"));
+            list.Add(Tuple.Create<int,string>(0,""));
+            list.Add(Tuple.Create<int,string>(0,""));
+
             CfContestDetail sazzad = new CfContestDetail()
             {
                 UserName = "sazzad",
                 Point = 2750,
                 ChallengeFailed = 1,
                 ChallengeSucceed = 3,
-                Rank = 4
+                Rank = 4,
+                PointTime=list,
+                ProblemNum=5
             };
 
             compareCfContestDetail(sazzad, actual[3]);

@@ -112,78 +112,117 @@ namespace RankInAll.Core.Codeforces
             if (matchs.Count <= 0)
                 return null;
 
-
-            string sRank=">\\s*?(\\d+)";
-            Regex rRank=new Regex(sRank,RegexOptions.Compiled);
-            var match=rRank.Match(matchs[0].Result("$1"));
-            contestDetail.Rank=Convert.ToInt32(match.Result("$1"));
+            contestDetail.ProblemNum = matchs.Count - 4;
 
 
-            string sName="<a href=.*? title=.*? class=.*?>(.*?)</a>";
-            Regex rName=new Regex(sName,RegexOptions.Compiled);
-            match=rName.Match(matchs[1].Result("$1"));
-            contestDetail.UserName=match.Result("$1");
+            string sRank = ">\\s*?(\\d+)";
+            Regex rRank = new Regex(sRank, RegexOptions.Compiled);
+            var match = rRank.Match(matchs[0].Result("$1"));
+            contestDetail.Rank = Convert.ToInt32(match.Result("$1"));
 
 
-            string sPoint="<span style=\"font-weight:bold;\">(\\d*?)</span>";
-            Regex rPoint=new Regex(sPoint,RegexOptions.Compiled);
-            match=rPoint.Match(matchs[2].Result("$1"));
-            if(match.Success)
-                contestDetail.Point= Convert.ToInt32(match.Result("$1"));
+            string sName = "<a href=.*? title=.*? class=.*?>(.*?)</a>";
+            Regex rName = new Regex(sName, RegexOptions.Compiled);
+            match = rName.Match(matchs[1].Result("$1"));
+            contestDetail.UserName = match.Result("$1");
+
+
+            string sPoint = "<span style=\"font-weight:bold;\">(\\d*?)</span>";
+            Regex rPoint = new Regex(sPoint, RegexOptions.Compiled);
+            match = rPoint.Match(matchs[2].Result("$1"));
+            if (match.Success)
+                contestDetail.Point = Convert.ToInt32(match.Result("$1"));
             else
-                contestDetail.Point=0;
+                contestDetail.Point = 0;
 
 
             string sChallengeSucceed = "<span class=\"successfullChallengeCount\" title=\"Successfull hacking attempts\">\\+(\\d*?)</span>";
             Regex rChallengeSucceed = new Regex(sChallengeSucceed, RegexOptions.Compiled);
             match = rChallengeSucceed.Match(matchs[3].Result("$1"));
-            if(match.Success)
+            if (match.Success)
                 contestDetail.ChallengeSucceed = Convert.ToInt32(match.Result("$1"));
             else
-                contestDetail.ChallengeSucceed=0;
+                contestDetail.ChallengeSucceed = 0;
 
             string sChallengeFailed = "<span class=\"unsuccessfullChallengeCount\" title=\"Unsuccessfull hacking attempts\">-(\\d*?)</span>";
             Regex rChallengeFailed = new Regex(sChallengeFailed, RegexOptions.Compiled);
             match = rChallengeFailed.Match(matchs[3].Result("$1"));
-            if(match.Success)
+            if (match.Success)
                 contestDetail.ChallengeFailed = Convert.ToInt32(match.Result("$1"));
             else
-                contestDetail.ChallengeFailed=0;
+                contestDetail.ChallengeFailed = 0;
 
-            //5 problems to be fetched
+            //5/6 problems to be fetched
 
-//1:rank   
-//2：name   
-//3：总分  有分数   否则直接0
-//4：challenge
-//成功：
-//失败，后面-是否要转义还不明确：
+            contestDetail.PointTime = new List<Tuple<int, string>>();
+            for (int i = 1; i <= contestDetail.ProblemNum; ++i)
+            {
+                string td = matchs[i + 3].Result("$1");//从0开始
+
+                string sPassed = "<span class=\"cell-passed-system-test\">(\\d*?)</span>";
+                Regex rPassed = new Regex(sPassed, RegexOptions.Compiled);
+                match = rPassed.Match(td);
+                if (match.Success)
+                {//ac
+                    int point = Convert.ToInt32(match.Result("$1"));
+
+                    string sTime = "<span class=\"cell-time\">(.*?)</span>";
+                    Regex rTime = new Regex(sTime, RegexOptions.Compiled);
+                    match = rTime.Match(td);
+
+                    string time = match.Result("$1");
+                    contestDetail.PointTime.Add(Tuple.Create<int, string>(point, time));
+                }
+                else
+                {
+                    string sFailed = "<span class=\"cell-failed-system-test\">\\s+([-\\d]+)\\s+</span>";
+                    Regex rFailed = new Regex(sFailed, RegexOptions.Compiled);
+                    match = rFailed.Match(td);
+                    if (match.Success)
+                    {//failed
+                        int point = Convert.ToInt32(match.Result("$1"));
+                        contestDetail.PointTime.Add(Tuple.Create<int, string>(point, ""));
+                    }
+                    else
+                    {
+                        contestDetail.PointTime.Add(Tuple.Create<int, string>(0, ""));
+                    }
+                }
+            }
+
+            //1:rank   
+            //2：name   
+            //3：总分  有分数   否则直接0
+            //4：challenge
+            //成功：
+            //失败，后面-是否要转义还不明确：
 
             return contestDetail;
         }
 
-        private static void CreateSubmitDetail(string result,out int point,out int timeOrTimes){
-            point=0;
-            timeOrTimes=0;
-//            ac
-//<td problemId="(\d+?)" title="Passed System Test, \+, (.*?)">\s*?<span class="cell-passed-system-
+        private static void CreateSubmitDetail(string result, out int point, out int timeOrTimes)
+        {
+            point = 0;
+            timeOrTimes = 0;
+            //            ac
+            //<td problemId="(\d+?)" title="Passed System Test, \+, (.*?)">\s*?<span class="cell-passed-system-
 
-//test">(\d*?)</span>\s*?<span class="cell-time">(\d\d:\d\d)</span>\s*?</td>
-//$1 problemId
-//$2 language
-//$3 points
-//$4 time
+            //test">(\d*?)</span>\s*?<span class="cell-time">(\d\d:\d\d)</span>\s*?</td>
+            //$1 problemId
+            //$2 language
+            //$3 points
+            //$4 time
 
-//wa
-//<td problemId="(\d*?)" title="Failed System Test, (.*?)">\s*?<span class="cell-failed-system-
+            //wa
+            //<td problemId="(\d*?)" title="Failed System Test, (.*?)">\s*?<span class="cell-failed-system-
 
-//test">\s*?(-\d*?)\s*?</span>\s*?</td>
-//$1 problemId
-//$2 language
-//$3 wa times
+            //test">\s*?(-\d*?)\s*?</span>\s*?</td>
+            //$1 problemId
+            //$2 language
+            //$3 wa times
 
-//no submit
-//<td>\s*?<span class="cell-unsubmitted">\s*?&nbsp;\s*?</span>\s*?</td>
+            //no submit
+            //<td>\s*?<span class="cell-unsubmitted">\s*?&nbsp;\s*?</span>\s*?</td>
         }
     }
 }

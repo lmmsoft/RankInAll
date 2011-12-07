@@ -2,6 +2,12 @@ D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\obj\Debug\ResolveAssemblyRe
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\RankInAlll.Core.dll
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\RankInAlll.Core.pdb
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\JudgeInAll.Utility.dll
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\Ranking.dll
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\NHibernate.dll
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\Iesi.Collections.dll
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\JudgeInAll.Utility.pdb
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\Ranking.pdb
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\NHibernate.xml
+D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\bin\Debug\Iesi.Collections.xml
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\obj\Debug\RankInAlll.Core.dll
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAlll.Core\obj\Debug\RankInAlll.Core.pdb

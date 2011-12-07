@@ -42,21 +42,30 @@
   <ItemGroup>
     <Compile Include="Codeforces\CfContestDetail.cs" />
     <Compile Include="Codeforces\CfContestResult.cs" />
+    <Compile Include="Codeforces\CfService.cs" />
     <Compile Include="Codeforces\Codeforces.cs" />
     <Compile Include="Codeforces\Color.cs" />
     <Compile Include="Codeforces\User.cs" />
     <Compile Include="Hdoj\HdojRank.cs" />
-    <Compile Include="IOjRank.cs" />
-    <Compile Include="IRatingRank.cs" />
+    <Compile Include="Hdoj\HdojService.cs" />
     <Compile Include="OjRankEntity.cs" />
     <Compile Include="Poj\PojRank.cs" />
+    <Compile Include="Poj\PojService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RankInAll.Utility\RankInAll.Utility.csproj">
       <Project>{12799C16-4EEA-41F7-89B0-C62BF6852410}</Project>
       <Name>RankInAll.Utility</Name>
     </ProjectReference>
+    <ProjectReference Include="..\文档等\Ranking\Ranking\Ranking.csproj">
+      <Project>{53EF4BCC-34B7-40EC-A0A2-C8F2DB124AF6}</Project>
+      <Name>Ranking</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

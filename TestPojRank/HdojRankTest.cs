@@ -116,7 +116,7 @@ namespace TestRank
                 NickName = "c-lou",
                 School = "njust",
                 Email = "lmm333@126.com",
-                No = 5132
+                No = 5242
             }; // TODO: 初始化为适当的值
 
             List<OjRankEntity> actual;
@@ -144,12 +144,12 @@ namespace TestRank
                 NickName = "c-lou",
                 School = "njust",
                 Email = "lmm333@126.com",
-                No = 5132
+                No = 5242
             }; // TODO: 初始化为适当的值
 
             OjRankEntity stsky = new OjRankEntity()
             {
-                Ac = 47,
+                Ac = 49,
                 Submit = 0,
                 UserName = "stsky",
                 NickName = "*[njust]STsky",
@@ -189,11 +189,13 @@ namespace TestRank
                 NickName = "c-lou",
                 School = "njust",
                 Email = "lmm333@126.com",
-                No = 5132
+                No = 5242
             }; // TODO: 初始化为适当的值
 
             AssertOjRankEntity(actual, lmm333);
         }
+
+        
 
         private static void AssertOjRankEntity(OjRankEntity actual, OjRankEntity expected)
         {
@@ -204,6 +206,24 @@ namespace TestRank
             Assert.AreEqual(expected.School, actual.School);
             Assert.AreEqual(expected.Submit, actual.Submit);
             Assert.AreEqual(expected.UserName, actual.UserName);
+        }
+
+        /// <summary>
+        ///GetLastAC 的测试
+        ///</summary>
+        [TestMethod()]
+        public void GetLastACTest()
+        {
+            //http://acm.hdu.edu.cn/status.php?first=&pid=&user=lmm333&lang=0&status=0
+            //4935688	2011-10-11 02:17:05	Accepted	4066	15MS	308K	20073B	G++	c-lou
+
+            HdojRank target = new HdojRank(); // TODO: 初始化为适当的值
+            string user_id = "lmm333"; // TODO: 初始化为适当的值
+            DateTime expected = new DateTime(2011,10,11,2,17,5); // TODO: 初始化为适当的值
+            DateTime actual;
+            actual = target.GetLastAC(user_id);
+            Assert.AreEqual(expected, actual);
+            
         }
     }
 }

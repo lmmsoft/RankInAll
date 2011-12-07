@@ -71,25 +71,25 @@ namespace TestRank
         [DeploymentItem("RankInAlll.Core.dll")]
         public void CreateOjRankTest()
         {
-            PojRank_Accessor target = new PojRank_Accessor(); // TODO: 初始化为适当的值
+            //PojRank_Accessor target = new PojRank_Accessor(); // TODO: 初始化为适当的值
 
-            string web = @"<tr bgcolor=#C0C0C0><td width=10%>1</td><td><a href=userstatus?user_id=ghostplant>ghostplant</a></td><td>( ^_^ ) </td><td>njust </td><td>497251726@qq.com </td><td>706</td><td>1530</td></tr>"; // TODO: 初始化为适当的值
+            //string web = @"<tr bgcolor=#C0C0C0><td width=10%>1</td><td><a href=userstatus?user_id=ghostplant>ghostplant</a></td><td>( ^_^ ) </td><td>njust </td><td>497251726@qq.com </td><td>706</td><td>1530</td></tr>"; // TODO: 初始化为适当的值
 
-            OjRankEntity_Accessor expected = new OjRankEntity_Accessor()
-            {
-                Ac = 706,
-                Submit = 1530,
-                UserName = "ghostplant",
-                NickName = "( ^_^ )",
-                School = "njust",
-                Email = "497251726@qq.com",
-                No = 1
-            }; // TODO: 初始化为适当的值
+            //OjRankEntity_Accessor expected = new OjRankEntity_Accessor()
+            //{
+            //    Ac = 706,
+            //    Submit = 1530,
+            //    UserName = "ghostplant",
+            //    NickName = "( ^_^ )",
+            //    School = "njust",
+            //    Email = "497251726@qq.com",
+            //    No = 1
+            //}; // TODO: 初始化为适当的值
 
-            OjRankEntity_Accessor actual;
-            actual = target.CreateOjRank(web);
+            //OjRankEntity_Accessor actual;
+            //actual = target.CreateOjRank(web);
 
-            AssertOjRankEntity_Accessor(expected, actual);
+            //AssertOjRankEntity_Accessor(expected, actual);
 
             //Assert.IsTrue(loumingming.Equals(actual));
             //Assert.Inconclusive("验证此测试方法的正确性。");
@@ -138,7 +138,7 @@ namespace TestRank
 
             OjRankEntity expected = new OjRankEntity()// TODO: 初始化为适当的值
             {
-                Ac = 344,
+                Ac = 347,
                 Submit = 711,
                 UserName = "ltj_njust",
                 NickName = "messiah",
@@ -169,6 +169,22 @@ namespace TestRank
             Assert.AreEqual(expected.School, actual.School);
             Assert.AreEqual(expected.Submit, actual.Submit);
             Assert.AreEqual(expected.UserName, actual.UserName);
+        }
+
+        /// <summary>
+        ///GetLastAc 的测试
+        ///</summary>
+        [TestMethod()]
+        [DeploymentItem("RankInAlll.Core.dll")]
+        public void GetLastAcTest()
+        {
+            PojRank target = new PojRank(); // TODO: 初始化为适当的值
+            string user_id = "lmm3333"; // TODO: 初始化为适当的值
+            DateTime actual;
+            actual = target.GetLastAc(user_id);
+            //2011-05-02 22:41:38
+            DateTime expect = new DateTime(2011, 05, 02, 22, 41, 38);
+            Assert.AreEqual(actual, expect);
         }
     }
 }

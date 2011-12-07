@@ -59,6 +59,10 @@
     <Shadow Include="测试引用\RankInAlll.Core.accessor" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RankInAll.Utility\RankInAll.Utility.csproj">
+      <Project>{12799C16-4EEA-41F7-89B0-C62BF6852410}</Project>
+      <Name>RankInAll.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RankInAlll.Core\RankInAll.Core.csproj">
       <Project>{69D07E76-6720-4159-BA71-9A62B02A7CA4}</Project>
       <Name>RankInAll.Core</Name>

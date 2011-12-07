@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RankInAll.Core
 {
-    class OjRankEntity
+    public class OjRankEntity
     {
         public virtual int No { get; set; }
         public virtual string UserName { get; set; }
