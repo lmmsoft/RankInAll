@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace RankInAll.Core.Codeforces
 {
-    class Codeforces
+    public class Codeforces
     {
         private CfContestResult GetContestResult(Match match)
         {
@@ -95,6 +95,8 @@ namespace RankInAll.Core.Codeforces
             {
                 string result = mat.Result("$2");
                 var contestDetail = CreateContestDetail(result);
+
+                contestDetail.ContestId = contestId;
 
                 //userId in cf= Convert.ToInt32(mat.Result("$1"));
 

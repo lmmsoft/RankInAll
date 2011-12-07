@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RankInAll.Core.Codeforces
 {
-    class CfContestDetail
+    public class CfContestDetail
     {
         public virtual string UserName { get; set; }
 
