@@ -67,6 +67,10 @@
       <Project>{69D07E76-6720-4159-BA71-9A62B02A7CA4}</Project>
       <Name>RankInAll.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\文档等\Ranking\Ranking\Ranking.csproj">
+      <Project>{53EF4BCC-34B7-40EC-A0A2-C8F2DB124AF6}</Project>
+      <Name>Ranking</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

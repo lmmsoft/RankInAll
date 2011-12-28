@@ -9,17 +9,13 @@ namespace RankInAll.Core.Codeforces
 {
     public class Codeforces
     {
-        private CfContestResult GetContestResult(Match match)
-        {
-            return new CfContestResult();
-        }
         public List<CfContestResult> GetAllContestResults(string user_id)
         {
             List<CfContestResult> resultList = new List<CfContestResult>();
 
             string url = string.Format("http://codeforces.com/profile/{0}", user_id);
             string web = Http.Get(url, null);
-
+            
             string regexPattern = "\\[\\s*?(\\d*?),\\s*?(\\d*?),\\s*?(\\d*?),\\s*?\"(.*?)\",\\s*?\"(.*?)\",\\s*?(-?\\d.*?),\\s*(\\d*),\\s*\"(.*?)\",\\s+\"(.*?)\"\\s+?\\]";
             Regex reg = new Regex(regexPattern, RegexOptions.Compiled);
             var matchs = reg.Matches(web);
@@ -46,6 +42,9 @@ namespace RankInAll.Core.Codeforces
             }
             return resultList;
         }
+        //the same as above
+        //public List<CfContestDetail> GetConteset
+        //\[\s+(?<id>\d+?),\s+(?<rating>\d+?),\s+(?<contestId>\d+?),\s+\"(?<contestName>.*?)\",\s+\"(?<contestNameRU>.*?)\",\s+(?<change>[-\d]+),\s+(?<rank>[\d]+),\s+\"(?<url>.*?)\",\s+\"(?<title>.*?)\"
 
         public User Getprofile(string user_id)
         {
@@ -73,37 +72,83 @@ namespace RankInAll.Core.Codeforces
             return user;
 
         }
-        public string GetProfilePage(string str)
+        
+        public CfContestInfo GetContestInfo(int contestId)
         {
-            string url = string.Format("http://codeforces.com/profile/{0}", str);
-            return Http.Get(url, null);
+            var info = new CfContestInfo();
+            info.ContestId = contestId;
+            info.type = "cf";
+
+            string url = string.Format("http://codeforces.com/contest/{0}/standings/page/1", contestId);
+            string web = Http.Get(url, null);
+
+            info.ContestUrl=url;
+
+            string regexPattern = "0.5em auto;\\\">(.*?)</div>";
+            Regex reg = new Regex(regexPattern, RegexOptions.Compiled);
+            var match = reg.Match(web);
+            info.ContestName = match.Result("$1").Trim();
+
+
+            regexPattern = @"Div\. (\d)";
+            reg = new Regex(regexPattern, RegexOptions.Compiled);
+            match = reg.Match(web);
+            info.div = Convert.ToInt32(match.Result("$1"));
+
+            return info;
         }
 
         public List<CfContestDetail> GetContestDetails(int contestId)
         {
             List<CfContestDetail> resultList = new List<CfContestDetail>();
 
-            string url = string.Format("http://codeforces.com/contest/{0}/standings", contestId.ToString());
+            int pageNum = GetContestStandingPages(contestId);
+            if (pageNum == 0)
+                return null;
+
+            for (int pageId = 1; pageId <= pageNum; ++pageId)
+            {
+                CreateContestDetailPage(contestId, resultList, pageId);
+            }
+
+            return resultList;
+        }
+
+        private static void CreateContestDetailPage(int contestId, List<CfContestDetail> resultList, int pageId)
+        {
+            string url = string.Format("http://codeforces.com/contest/{0}/standings/page/{1}", contestId, pageId);
             string web = Http.Get(url, null);
 
             string regexPattern = "<tr participantId=\"(\\d*?)\">\\s*?(<td>\\s*?\\d+[\\s\\S]*?)</tr>";
             Regex reg = new Regex(regexPattern, RegexOptions.Compiled);
             var matchs = reg.Matches(web);
-            if (matchs.Count <= 0)
-                return null;
+            //if (matchs.Count <= 0)
+            //    return null;
             foreach (Match mat in matchs)
             {
                 string result = mat.Result("$2");
                 var contestDetail = CreateContestDetail(result);
-
                 contestDetail.ContestId = contestId;
-
                 //userId in cf= Convert.ToInt32(mat.Result("$1"));
-
                 resultList.Add(contestDetail);
             }
-            return resultList;
         }
+
+        private int GetContestStandingPages(int contestId)
+        {
+            string url = string.Format("http://codeforces.com/contest/{0}/standings/page/1", contestId);
+            string web = Http.Get(url, null);
+
+            if(web==null)//没抓到数据
+                return 0;
+
+            string regexPattern = @"/contest/(\d+)/standings/page/(\d+)";
+            Regex reg = new Regex(regexPattern, RegexOptions.Compiled);
+            var matchs = reg.Matches(web);
+
+            return matchs.Count+1;
+        }
+
         private static CfContestDetail CreateContestDetail(string result)
         {
             var contestDetail = new CfContestDetail();
@@ -201,7 +246,6 @@ namespace RankInAll.Core.Codeforces
 
             return contestDetail;
         }
-
         private static void CreateSubmitDetail(string result, out int point, out int timeOrTimes)
         {
             point = 0;
@@ -226,5 +270,12 @@ namespace RankInAll.Core.Codeforces
             //no submit
             //<td>\s*?<span class="cell-unsubmitted">\s*?&nbsp;\s*?</span>\s*?</td>
         }
+        private string GetProfilePage(string str)
+        {
+            string url = string.Format("http://codeforces.com/profile/{0}", str);
+            return Http.Get(url, null);
+        }
+
+    
     }
 }
