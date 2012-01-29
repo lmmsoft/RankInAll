@@ -8,3 +8,8 @@ D:\MyCodes\TeenagerStudio\RankInAlll\RankInAll.Utility\bin\Debug\JudgeInAll.Util
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAll.Utility\obj\Debug\ResolveAssemblyReference.cache
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAll.Utility\obj\Debug\JudgeInAll.Utility.dll
 D:\MyCodes\TeenagerStudio\RankInAlll\RankInAll.Utility\obj\Debug\JudgeInAll.Utility.pdb
+D:\MyCodes\TeenagerStudio\RankInAll\RankInAll.Utility\bin\Debug\JudgeInAll.Utility.dll
+D:\MyCodes\TeenagerStudio\RankInAll\RankInAll.Utility\bin\Debug\JudgeInAll.Utility.pdb
+D:\MyCodes\TeenagerStudio\RankInAll\RankInAll.Utility\obj\Debug\ResolveAssemblyReference.cache
+D:\MyCodes\TeenagerStudio\RankInAll\RankInAll.Utility\obj\Debug\JudgeInAll.Utility.dll
+D:\MyCodes\TeenagerStudio\RankInAll\RankInAll.Utility\obj\Debug\JudgeInAll.Utility.pdb
