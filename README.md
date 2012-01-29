@@ -2,7 +2,7 @@
 
 ## Summary:
 
-Fetch user informations and contest results from poj hdoj and codeforces
+Fetch user informations and contest results from [poj](http://poj.org/) [hdoj](http://acm.hdu.edu.cn/) and [codeforces](http://codeforces.com/)
 
 There will be a open platform in NjustOJ , and this is a test project for it.
 
