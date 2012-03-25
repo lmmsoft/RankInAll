@@ -1,7 +1,7 @@
-﻿using RankInAll.Core.Hdoj;
+﻿using RankInAll.Core.OnlineJudge.Hdoj;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using RankInAll.Core;
+using RankInAll.Core.OnlineJudge;
 using System.Collections.Generic;
 
 namespace TestRank

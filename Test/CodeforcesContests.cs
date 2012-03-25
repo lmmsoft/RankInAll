@@ -1,4 +1,4 @@
-﻿using RankInAll.Core.Codeforces;
+﻿using RankInAll.Core.OnlineContest.Codeforces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -128,7 +128,7 @@ namespace TestRank
             string user_id = "acrush";
 
             User actual;
-            actual = target.Getprofile(user_id);
+            actual = target.GetProfile(user_id);
             Assert.AreEqual(actual.Rating, 2521);
             Assert.AreEqual(actual.Timesplayed, 13);
         }

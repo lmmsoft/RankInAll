@@ -1,7 +1,7 @@
-﻿using RankInAll.Core.Poj;
+﻿using RankInAll.Core.OnlineJudge.POJ;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using RankInAll.Core;
+using RankInAll.Core.OnlineJudge;
 using System.Collections.Generic;
 
 namespace TestRank
@@ -181,7 +181,7 @@ namespace TestRank
             PojRank target = new PojRank(); // TODO: 初始化为适当的值
             string user_id = "lmm3333"; // TODO: 初始化为适当的值
             DateTime actual;
-            actual = target.GetLastAc(user_id);
+            actual = target.GetLastAC(user_id);
             //2011-05-02 22:41:38
             DateTime expect = new DateTime(2011, 05, 02, 22, 41, 38);
             Assert.AreEqual(actual, expect);
