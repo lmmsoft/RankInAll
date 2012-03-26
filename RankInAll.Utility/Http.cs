@@ -21,6 +21,18 @@ namespace RankInAll.Utility
             reader.Close();
             return ret;
         }
+        public static string Get(string url, bool AutoRedirect)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = WebRequestMethods.Http.Get;
+            request.CookieContainer = null;
+            request.AllowAutoRedirect = AutoRedirect;
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string ret = reader.ReadToEnd();
+            reader.Close();
+            return ret;
+        }
 
         public static string Get(string url, CookieContainer container,Encoding encoding)
         {

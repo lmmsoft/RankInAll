@@ -43,6 +43,8 @@
     <Compile Include="OnlineContest\Codeforces\CfEntity.cs" />
     <Compile Include="OnlineContest\Codeforces\Codeforces.cs" />
     <Compile Include="OnlineContest\IOnlineContest.cs" />
+    <Compile Include="OnlineContest\Topcoder\TcEntity.cs" />
+    <Compile Include="OnlineContest\Topcoder\Topcoder.cs" />
     <Compile Include="OnlineJudge\HDOJ\HdojRank.cs" />
     <Compile Include="OnlineJudge\IOnlineJudge.cs" />
     <Compile Include="OnlineJudge\OjRankEntity.cs" />
