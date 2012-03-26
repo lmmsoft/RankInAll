@@ -71,7 +71,7 @@ namespace TestRank
         [TestMethod()]
         public void GetprofileTest()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             string user_id = "lmm333";
 
             CfContestResult expected1 = new CfContestResult()
@@ -124,7 +124,7 @@ namespace TestRank
         [TestMethod()]
         public void GetprofileTest1()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             string user_id = "acrush";
 
             User actual;
@@ -139,7 +139,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest1()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 128;
 
             List<CfContestDetail> actual;
@@ -163,7 +163,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest2()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 99;
 
             List<CfContestDetail> actual;
@@ -196,7 +196,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest3()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 131;
 
             List<CfContestDetail> actual;
@@ -241,7 +241,7 @@ namespace TestRank
         [TestMethod()]
         public void GetAllContestResultsTest()
         {
-            Codeforces target = new Codeforces(); // TODO: 初始化为适当的值
+            CodeforcesProvider target = new CodeforcesProvider(); // TODO: 初始化为适当的值
             string user_id = "lmm333"; // TODO: 初始化为适当的值
 
             CfContestResult expected_1 = new CfContestResult
@@ -281,7 +281,7 @@ namespace TestRank
         [DeploymentItem("RankInAlll.Core.dll")]
         public void GetContestStandingPagesTest()
         {
-            Codeforces_Accessor target = new Codeforces_Accessor(); // TODO: 初始化为适当的值
+            CodeforcesProvider_Accessor target = new CodeforcesProvider_Accessor(); // TODO: 初始化为适当的值
             int contestId = 139; // TODO: 初始化为适当的值
 
             int expected = 18; // TODO: 初始化为适当的值
@@ -296,7 +296,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestInfoTest()
         {
-            Codeforces target = new Codeforces(); // TODO: 初始化为适当的值
+            CodeforcesProvider target = new CodeforcesProvider(); // TODO: 初始化为适当的值
             int contestId = 139; // TODO: 初始化为适当的值
             CfContestInfo expected = new CfContestInfo()
             {

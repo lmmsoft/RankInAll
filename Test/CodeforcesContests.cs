@@ -71,7 +71,7 @@ namespace TestRank
         [TestMethod()]
         public void GetprofileTest()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             string user_id = "lmm333";
 
             CfContestResult expected1 = new CfContestResult()
@@ -124,7 +124,7 @@ namespace TestRank
         [TestMethod()]
         public void GetprofileTest1()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             string user_id = "acrush";
 
             User actual;
@@ -139,7 +139,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest1()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 128;
 
             List<CfContestDetail> actual;
@@ -163,7 +163,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest2()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 99;
 
             List<CfContestDetail> actual;
@@ -199,7 +199,7 @@ namespace TestRank
         [TestMethod()]
         public void GetAllContestResultsTest()
         {
-            Codeforces target = new Codeforces(); // TODO: 初始化为适当的值
+            CodeforcesProvider target = new CodeforcesProvider(); // TODO: 初始化为适当的值
             string user_id = "lmm333"; // TODO: 初始化为适当的值
 
             CfContestResult expected_1 = new CfContestResult
@@ -240,7 +240,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest128()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 128;
 
             List<CfContestDetail> actual;
@@ -267,7 +267,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest127()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 127;
 
             List<CfContestDetail> actual;
@@ -296,7 +296,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest131()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 131;
 
             List<CfContestDetail> actual;
@@ -326,7 +326,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest26()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 26;
 
             List<CfContestDetail> actual;
@@ -355,7 +355,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest27()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 27;
 
             List<CfContestDetail> actual;
@@ -384,7 +384,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest28()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 28;
 
             List<CfContestDetail> actual;
@@ -413,7 +413,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest29()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 29;
 
             List<CfContestDetail> actual;
@@ -442,7 +442,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest30()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 30;
 
             List<CfContestDetail> actual;
@@ -471,7 +471,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest31()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 31;
 
             List<CfContestDetail> actual;
@@ -500,7 +500,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest32()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 32;
 
             List<CfContestDetail> actual;
@@ -529,7 +529,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest33()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 33;
 
             List<CfContestDetail> actual;
@@ -558,7 +558,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest34()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 34;
 
             List<CfContestDetail> actual;
@@ -587,7 +587,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest35()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 35;
 
             List<CfContestDetail> actual;
@@ -616,7 +616,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest36()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 36;
 
             List<CfContestDetail> actual;
@@ -645,7 +645,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest37()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 37;
 
             List<CfContestDetail> actual;
@@ -674,7 +674,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest40()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 40;
 
             List<CfContestDetail> actual;
@@ -704,7 +704,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest41()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 41;
 
             List<CfContestDetail> actual;
@@ -734,7 +734,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest42()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 42;
 
             List<CfContestDetail> actual;
@@ -763,7 +763,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest43()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 43;
 
             List<CfContestDetail> actual;
@@ -792,7 +792,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest47()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 47;
 
             List<CfContestDetail> actual;
@@ -821,7 +821,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest49()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 49;
 
             List<CfContestDetail> actual;
@@ -850,7 +850,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest50()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 50;
 
             List<CfContestDetail> actual;
@@ -879,7 +879,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest51()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 51;
 
             List<CfContestDetail> actual;
@@ -908,7 +908,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest52()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 52;
 
             List<CfContestDetail> actual;
@@ -937,7 +937,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest53()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 53;
 
             List<CfContestDetail> actual;
@@ -966,7 +966,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest54()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 54;
 
             List<CfContestDetail> actual;
@@ -995,7 +995,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest55()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 55;
 
             List<CfContestDetail> actual;
@@ -1024,7 +1024,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest56()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 56;
 
             List<CfContestDetail> actual;
@@ -1053,7 +1053,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest57()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 57;
 
             List<CfContestDetail> actual;
@@ -1082,7 +1082,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest58()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 58;
 
             List<CfContestDetail> actual;
@@ -1111,7 +1111,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest59()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 59;
 
             List<CfContestDetail> actual;
@@ -1140,7 +1140,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest60()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 60;
 
             List<CfContestDetail> actual;
@@ -1169,7 +1169,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest61()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 61;
 
             List<CfContestDetail> actual;
@@ -1198,7 +1198,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest62()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 62;
 
             List<CfContestDetail> actual;
@@ -1227,7 +1227,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest63()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 63;
 
             List<CfContestDetail> actual;
@@ -1256,7 +1256,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest65()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 65;
 
             List<CfContestDetail> actual;
@@ -1285,7 +1285,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest66()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 66;
 
             List<CfContestDetail> actual;
@@ -1314,7 +1314,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest67()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 67;
 
             List<CfContestDetail> actual;
@@ -1343,7 +1343,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest68()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 68;
 
             List<CfContestDetail> actual;
@@ -1372,7 +1372,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest69()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 69;
 
             List<CfContestDetail> actual;
@@ -1401,7 +1401,7 @@ namespace TestRank
         [TestMethod()]
         public void GetContestDetailsTest70()
         {
-            Codeforces target = new Codeforces();
+            CodeforcesProvider target = new CodeforcesProvider();
             int contestId = 70;
 
             List<CfContestDetail> actual;
