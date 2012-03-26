@@ -98,7 +98,7 @@ namespace TestRank
             };
 
             List<CfContestResult> actual;
-            actual = target.GetAllContestResults(user_id);
+            actual = target.GetUserContestResults(user_id);
 
             Assert.IsNotNull(actual);
 
@@ -226,7 +226,7 @@ namespace TestRank
             };
 
             List<CfContestResult> actual;
-            actual = target.GetAllContestResults(user_id);
+            actual = target.GetUserContestResults(user_id);
 
             compareCfResult(expected_1, actual[0]);
             compareCfResult(expected_14, actual[13]);

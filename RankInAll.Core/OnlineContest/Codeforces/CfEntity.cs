@@ -33,13 +33,22 @@ namespace RankInAll.Core.OnlineContest.Codeforces
         public virtual string UserName { get; set; }
 
         public virtual int ContestId { get; set; }
-
+        /// <summary>
+        /// 比赛的得分
+        /// </summary>
         public virtual int Point { get; set; }
+        /// <summary>
+        /// 比赛排名
+        /// </summary>
         public virtual int Rank { get; set; }
-
+        /// <summary>
+        /// 比赛题目数量
+        /// </summary>
         public virtual int ProblemNum { get; set; }
-
-        public virtual List<Tuple<int, string>> PointTime { get; set; }
+        /// <summary>
+        /// 这是个list,里面包含 Tuple(int, string) 分别是用户某道题的得分和时间，如(1104, "01:06")，如果没交题，是(0, "")，如果交题但是failed ,类似于(-2, "") int熟悉时失败次数
+        /// </summary>
+        public virtual List<Tuple<int, string> > PointTime { get; set; }
 
         public virtual int ChallengeFailed { get; set; }
         public virtual int ChallengeSucceed { get; set; }

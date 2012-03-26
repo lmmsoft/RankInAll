@@ -9,7 +9,12 @@ namespace RankInAll.Core.OnlineContest.Codeforces
 {
     public class CodeforcesProvider
     {
-        public List<CfContestResult> GetAllContestResults(string user_id)
+        /// <summary>
+        /// 抓取某人所有比赛的结果
+        /// </summary>
+        /// <param name="user_id">cf用户名</param>
+        /// <returns></returns>
+        public List<CfContestResult> GetUserContestResults(string user_id)
         {
             List<CfContestResult> resultList = new List<CfContestResult>();
 
