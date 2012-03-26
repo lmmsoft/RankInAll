@@ -4,7 +4,7 @@
 ## Summary:
 
 
-Fetch user informations and contest results from [poj](http://poj.org/) [hdoj](http://acm.hdu.edu.cn/) and [codeforces](http://codeforces.com/)
+Fetch user informations and contest results from [poj](http://poj.org/) ,[hdoj](http://acm.hdu.edu.cn/) ,[codeforces](http://codeforces.com/) and [topcoder](http://topcoder.com/)
 
 There will be a open platform in NjustOJ , and this is a test project for it.
 
@@ -13,6 +13,12 @@ There will be a open platform in NjustOJ , and this is a test project for it.
 
 
 ## Changelog:
+
+### 1.2.0: March 26th, 2012
+
+<ul>
+	<li>Add the support for Topcoder rating</li>
+</ul>
 
 ### 1.1.0: January 29th, 2012
 
