@@ -2,28 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using RankInAll.Service.OnlineContest;
 using RankInAll.Core.OnlineContest.Codeforces;
 
-namespace RankInAll.Service.OnlineContest.Codeforces
+namespace RankInAll.Storage.OnlineContest
 {
-    public class CFService:IOnlineContestService
+    public class CodeforcesStorage : IOnlineContestService
     {
-        CodeforcesProvider cf = new CodeforcesProvider();
+        CodeforcesProvider provider = new CodeforcesProvider();
+        Storage storage = new Storage();
 
-        void IOnlineContestService.UpdateRating()
+        public void UpdateRatings()
         {
-            //从数据库拿到所有cf账号
-            //把User改成数据库的实体类
-            List<User> users = new List<User>();
+            var cf = new RankInAll.Core.OnlineContest.Codeforces.CodeforcesProvider();
 
-            //根据每个user_name抓取用户信息
-            foreach (var user in users)
+            List<string> list = storage.GetCFUsers();
+            foreach (var userName in list)
             {
-                var ur = cf.GetProfile(user.UserName);
+                var user = cf.GetProfile(userName);
                 //把ur.Rating更新到数据库里面
+                storage.UpdateCodeforce(user);
             }
+        }
 
+        public void UpdateRating(string userName)
+        {
+            var user = provider.GetProfile(userName);
+            //把ur.Rating更新到数据库里面
+            storage.UpdateCodeforce(user);
         }
 
         /// <summary>
@@ -33,7 +38,7 @@ namespace RankInAll.Service.OnlineContest.Codeforces
         void AddContestInfo(int constent_id)
         {
             //目前能抓到type="cf"  url  name  div 暂时抓不到data
-            CfContestInfo info= cf.GetContestInfo(constent_id);
+            CfContestInfo info= provider.GetContestInfo(constent_id);
             //存入数据库
             //save info
         }
@@ -45,7 +50,7 @@ namespace RankInAll.Service.OnlineContest.Codeforces
         void AddContestResult(int constent_id)
         {
             //抓到比赛的所有结果，包括user里面没有的用户，都要存到数据库里面噢（方便后期增加新用户嘛）
-            List<CfContestDetail> list = cf.GetContestDetails(constent_id);
+            List<CfContestDetail> list = provider.GetContestDetails(constent_id);
 
             //下面是存储比赛详细结果
             foreach (var detail in list)
@@ -77,5 +82,7 @@ namespace RankInAll.Service.OnlineContest.Codeforces
             }
         }
 
+
+        
     }
 }

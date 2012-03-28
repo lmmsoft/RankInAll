@@ -96,7 +96,7 @@ namespace TestRank
             int type = 1; // TODO: 初始化为适当的值
             List<DBAllRank> expected = null; // TODO: 初始化为适当的值
             List<DBAllRank> actual;
-            actual = target.GetAllRank(type);
+            actual = target.GetRanks(type);
             Assert.AreEqual(actual[0].PojAcceptCount, 254);
             Assert.AreEqual(actual[0].HduAcceptCount, 0);
             Assert.AreEqual(actual[0].TrueName, null);
@@ -119,6 +119,49 @@ namespace TestRank
             string OJTableName = "hdoj"; // TODO: 初始化为适当的值
             target.UpdateOJRank(entity, OJTableName);
             Assert.Inconclusive("无法验证不返回值的方法。");
+        }
+
+        /// <summary>
+        ///GetCFUsers 的测试
+        ///</summary>
+        [TestMethod()]
+        public void GetCFUsersTest()
+        {
+            Storage target = new Storage(); // TODO: 初始化为适当的值
+            List<string> expected = null; // TODO: 初始化为适当的值
+            List<string> actual;
+            actual = target.GetCFUsers();
+            Assert.AreEqual(expected, actual);
+            Assert.Inconclusive("验证此测试方法的正确性。");
+        }
+
+        /// <summary>
+        ///GetCFUsers 的测试
+        ///</summary>
+        [TestMethod()]
+        public void GetCFUsersTest1()
+        {
+            Storage target = new Storage(); // TODO: 初始化为适当的值
+            List<string> expected = null; // TODO: 初始化为适当的值
+            List<string> actual;
+            actual = target.GetCFUsers();
+
+            Assert.AreEqual("lmm333", actual[0]);
+        }
+
+        /// <summary>
+        ///GetTCUsers 的测试
+        ///</summary>
+        [TestMethod()]
+        public void GetTCUsersTest()
+        {
+            Storage target = new Storage(); // TODO: 初始化为适当的值
+            List<string> expected = null; // TODO: 初始化为适当的值
+            List<string> actual;
+            actual = target.GetTCUsers();
+
+            Assert.AreEqual("lmm333", actual[0]);
+            Assert.AreEqual("HJWAJ", actual[1]);
         }
     }
 }

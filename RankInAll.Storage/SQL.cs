@@ -28,20 +28,33 @@ namespace RankInAll.Storage
         //        OJTableName, entity.UserName, entity.Ac, entity.Submit, DateTime.Today, DateTime.Today);
         //    return sql;
         //}
-        
-        public static string UpdateTopcoderUser(RankInAll.Core.OnlineContest.Topcoder.User user)
-        {
-            string sql = string.Format("REPLACE INTO `rank_in_all`.`tc` (`id`, `user_name`, `rating`, `volatility`, `last_contest`) VALUES (NULL, '{0}', '{1}', '{2}', '{3}')",
-                user.UserName, user.Rating, user.Volatility, user.MostRecentEvent);
-            return sql;
-        }
+
+
         public static string UpdateCodeforcesUser(RankInAll.Core.OnlineContest.Codeforces.User user)
         {
             string sql = string.Format("REPLACE INTO `rank_in_all`.`cf` (`id`, `user_name`, `rating`, `last_contest`) VALUES ('{0}', '{1}', '{2}', '{3}')",
                 null, user.UserName, user.Rating, null);
             return sql;
         }
-        public static string GetAll(int start,int length,int type)
+        public static string UpdateTopcoderUser(RankInAll.Core.OnlineContest.Topcoder.User user)
+        {
+            string sql = string.Format("REPLACE INTO `rank_in_all`.`tc` (`id`, `user_name`, `rating`, `volatility`, `last_contest`) VALUES (NULL, '{0}', '{1}', '{2}', '{3}')",
+                user.UserName, user.Rating, user.Volatility, user.MostRecentEvent);
+            return sql;
+        }
+
+        public static string GetCodeforcesUsers()
+        {
+            string sql = string.Format("SELECT * FROM `rank_in_all`.`user` WHERE cf_name IS NOT NULL ");
+            return sql;
+        }
+        public static string GetTopcoderUsers()
+        {
+            string sql = string.Format("SELECT * FROM `rank_in_all`.`user` WHERE tc_name IS NOT NULL ");
+            return sql;
+        }
+
+        public static string GetRanks(int start,int length,int type)
         {
             string sql = string.Format("SELECT user.njustoj_name, user.true_name,poj.ac as poj,hdoj.ac as hdoj,cf.rating as cf,tc.rating as tc FROM `user`\n"
                         + "left JOIN poj\n"
@@ -60,6 +73,24 @@ namespace RankInAll.Storage
                         start,length,type);
             return sql;
         }
+        public static string GetRank(int njustoj_id)
+        {
+            string sql = string.Format("SELECT user.njustoj_name, user.true_name,poj.ac as poj,hdoj.ac as hdoj,cf.rating as cf,tc.rating as tc FROM `user`\n"
+                        + "left JOIN poj\n"
+                        + "on user.poj_name=poj.user_name\n"
+                        + "\n"
+                        + "left JOIN hdoj\n"
+                        + "on user.hdoj_name=hdoj.user_name\n"
+                        + "\n"
+                        + "left JOIN cf\n"
+                        + "on user.cf_name=cf.user_name\n"
+                        + "\n"
+                        + "left JOIN tc\n"
+                        + "on user.tc_name=tc.user_name "
+                        + "WHERE njustoj_id={0} ",
+                        njustoj_id);
+            return sql;
+        }
 
         public static string GetUser(string user_name)
         {
@@ -75,6 +106,7 @@ namespace RankInAll.Storage
                 user.NjustOjName,user.PojName,user.HdojName,user.CfName,user.TcName,user.TrueName,user.NjustOjId,user.AccessToken,user.Type);
             return sql;
         }
+
         public static string Check(string user_name, int type)
         {
             string sql = string.Format("SELECT * FROM `user` WHERE njustoj_name='{0}' and type={1}",

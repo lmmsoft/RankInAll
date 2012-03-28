@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using MySql.Data.MySqlClient;
 
+
 namespace RankInAll.Storage
 {
     public class Storage
@@ -103,20 +104,17 @@ namespace RankInAll.Storage
             {
                 while (reader.Read())
                 {
-                    if (reader.HasRows)
+                    userinfo = new UserInfo()
                     {
-                        userinfo = new UserInfo()
-                        {
-                            NjustOjName = reader.GetString("njustoj_name"),
-                            PojName = CheckStringDBNull("poj_name"),
-                            HdojName = CheckStringDBNull("hdoj_name"),
-                            CfName = CheckStringDBNull("cf_name"),
-                            TrueName = CheckStringDBNull("true_name"),
-                            NjustOjId = reader.GetInt32("njustoj_id"),
-                            AccessToken = CheckStringDBNull("token"),
-                            Type = reader.GetInt32("type")
-                        };
-                    }
+                        NjustOjName = reader.GetString("njustoj_name"),
+                        PojName = CheckStringDBNull("poj_name"),
+                        HdojName = CheckStringDBNull("hdoj_name"),
+                        CfName = CheckStringDBNull("cf_name"),
+                        TrueName = CheckStringDBNull("true_name"),
+                        NjustOjId = reader.GetInt32("njustoj_id"),
+                        AccessToken = CheckStringDBNull("token"),
+                        Type = reader.GetInt32("type")
+                    };
                 }
             }
             catch (Exception)
@@ -131,13 +129,24 @@ namespace RankInAll.Storage
         }
 
         /// <summary>
-        /// 获取rank
+        /// 更新一个用户的信息
+        /// </summary>
+        /// <param name="user_name"></param>
+        /// <returns></returns>
+        public void UpdateUserInfo(UserInfo userInfo)
+        {
+            mySqlCommand.CommandText = SQL.UpdateUser(userInfo);
+            mySqlCommand.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// 获取rank （要重构抽出）
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public List<DBAllRank> GetAllRank(int type)
+        public List<DBAllRank> GetRanks(int type)
         {
-            mySqlCommand.CommandText = SQL.GetAll(0, 200, type);
+            mySqlCommand.CommandText = SQL.GetRanks(0, 200, type);
             List<DBAllRank> list = new List<DBAllRank>();
             reader = mySqlCommand.ExecuteReader();
             try
@@ -166,6 +175,42 @@ namespace RankInAll.Storage
             return list;
         }
 
+        /// <summary>
+        /// 获取rank （要重构抽出）
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public DBAllRank GetRank(int njustoj_id)
+        {
+            mySqlCommand.CommandText = SQL.GetRank(njustoj_id);
+            DBAllRank rank = null;
+            reader = mySqlCommand.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    rank = (new DBAllRank()
+                    {
+                        PojAcceptCount = CheckIntDBNull("poj"),
+                        HduAcceptCount = CheckIntDBNull("hdoj"),
+                        CfRating = CheckIntDBNull("cf"),
+                        TcRating = CheckIntDBNull("tc"),
+                        NjustOjName = CheckStringDBNull("njustoj_name"),
+                        TrueName = CheckStringDBNull("true_name")
+                    });
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("查询失败了！");
+            }
+            finally
+            {
+                reader.Close();
+            }
+            return rank;
+        }
+
         public void UpdateCodeforce(RankInAll.Core.OnlineContest.Codeforces.User user)
         {
             mySqlCommand.CommandText = SQL.UpdateCodeforcesUser(user);
@@ -182,6 +227,57 @@ namespace RankInAll.Storage
         {
             mySqlCommand.CommandText = SQL.UpdateOJRank(entity, OJTableName);
             mySqlCommand.ExecuteNonQuery();
+        }
+
+
+        /// <summary>
+        /// 获得所有cf用户名
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetCFUsers()
+        {
+            mySqlCommand.CommandText = SQL.GetCodeforcesUsers();
+            List<string> list = new List<string>();
+            reader = mySqlCommand.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    list.Add(CheckStringDBNull("cf_name"));
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("查询失败了！");
+            }
+            finally
+            {
+                reader.Close();
+            }
+            return list;
+        }
+
+        public List<string> GetTCUsers()
+        {
+            mySqlCommand.CommandText = SQL.GetTopcoderUsers();
+            List<string> list = new List<string>();
+            reader = mySqlCommand.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    list.Add(CheckStringDBNull("tc_name"));
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("查询失败了！");
+            }
+            finally
+            {
+                reader.Close();
+            }
+            return list;
         }
 
 

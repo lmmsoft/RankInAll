@@ -17,6 +17,7 @@ namespace RankInAll.Storage
         public virtual string AccessToken { get; set; }
         public virtual int Type { get; set; }
     }
+
     public class DBAllRank
     {
         public virtual string NjustOjName { get; set; }

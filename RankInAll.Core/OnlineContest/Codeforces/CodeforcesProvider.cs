@@ -80,9 +80,7 @@ namespace RankInAll.Core.OnlineContest.Codeforces
             if (matchs.Count <= 0)
                 return null;
             user.Timesplayed = matchs.Count;
-
             return user;
-
         }
         
         /// <summary>
