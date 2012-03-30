@@ -91,7 +91,7 @@ namespace RankInAll.Storage
         }
 
         /// <summary>
-        /// 获得一个用户的信息
+        /// 获得一个用户的信息 根据用户名
         /// </summary>
         /// <param name="user_name"></param>
         /// <returns></returns>
@@ -110,6 +110,45 @@ namespace RankInAll.Storage
                         PojName = CheckStringDBNull("poj_name"),
                         HdojName = CheckStringDBNull("hdoj_name"),
                         CfName = CheckStringDBNull("cf_name"),
+                        TrueName = CheckStringDBNull("true_name"),
+                        NjustOjId = reader.GetInt32("njustoj_id"),
+                        AccessToken = CheckStringDBNull("token"),
+                        Type = reader.GetInt32("type")
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("查询失败了！");
+            }
+            finally
+            {
+                reader.Close();
+            }
+            return userinfo;
+        }
+
+        /// <summary>
+        /// 获得一个用户的信息 根据njustoj-id
+        /// </summary>
+        /// <param name="njustoj_id"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfo(int njustoj_id)
+        {
+            mySqlCommand.CommandText = SQL.GetUser(njustoj_id);
+            UserInfo userinfo = null;
+            reader = mySqlCommand.ExecuteReader();
+            try
+            {
+                while (reader.Read())
+                {
+                    userinfo = new UserInfo()
+                    {
+                        NjustOjName = reader.GetString("njustoj_name"),
+                        PojName = CheckStringDBNull("poj_name"),
+                        HdojName = CheckStringDBNull("hdoj_name"),
+                        CfName = CheckStringDBNull("cf_name"),
+                        TcName = CheckStringDBNull("tc_name"),
                         TrueName = CheckStringDBNull("true_name"),
                         NjustOjId = reader.GetInt32("njustoj_id"),
                         AccessToken = CheckStringDBNull("token"),

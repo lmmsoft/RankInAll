@@ -186,5 +186,6 @@ namespace TestRank
             DateTime expect = new DateTime(2011, 05, 02, 22, 41, 38);
             Assert.AreEqual(actual, expect);
         }
+
     }
 }

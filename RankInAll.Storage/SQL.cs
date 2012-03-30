@@ -32,8 +32,8 @@ namespace RankInAll.Storage
 
         public static string UpdateCodeforcesUser(RankInAll.Core.OnlineContest.Codeforces.User user)
         {
-            string sql = string.Format("REPLACE INTO `rank_in_all`.`cf` (`id`, `user_name`, `rating`, `last_contest`) VALUES ('{0}', '{1}', '{2}', '{3}')",
-                null, user.UserName, user.Rating, null);
+            string sql = string.Format("REPLACE INTO `rank_in_all`.`cf` (`user_name`, `rating`, `last_contest`) VALUES ('{0}', '{1}', '{2}')",
+                user.UserName, user.Rating, null);
             return sql;
         }
         public static string UpdateTopcoderUser(RankInAll.Core.OnlineContest.Topcoder.User user)
@@ -98,11 +98,18 @@ namespace RankInAll.Storage
                 user_name);
             return sql;
         }
+        public static string GetUser(int njustoj_id)
+        {
+            string sql = string.Format("SELECT * FROM `rank_in_all`.`user` WHERE njustoj_id='{0}'",
+                njustoj_id);
+            return sql;
+        }
+
         public static string UpdateUser(UserInfo user)
         {
             string sql = string.Format("REPLACE INTO `rank_in_all`.`user`"
-                +" (`id`, `njustoj_name`, `poj_name`, `hdoj_name`, `cf_name`, `tc_name`, `true_name`, `njustoj_id`, `token`, `type`) "
-                +"VALUES (NULL, '{0}', '{1}', '{2}', '{3}', '{4}', {5}, {6}, {7}, '{8}');",
+                +" (`njustoj_name`, `poj_name`, `hdoj_name`, `cf_name`, `tc_name`, `true_name`, `njustoj_id`, `token`, `type`) "
+                +"VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', {6}, '{7}', {8});",
                 user.NjustOjName,user.PojName,user.HdojName,user.CfName,user.TcName,user.TrueName,user.NjustOjId,user.AccessToken,user.Type);
             return sql;
         }

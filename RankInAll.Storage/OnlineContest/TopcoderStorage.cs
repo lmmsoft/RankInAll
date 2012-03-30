@@ -20,7 +20,8 @@ namespace RankInAll.Storage.OnlineContest
             {
                 var user = tc.GetProfile(userName);
                 //把ur.Rating更新到数据库里面
-                storage.UpdateTopcoder(user);
+                if (user != null)
+                    storage.UpdateTopcoder(user);
             }
         }
 
@@ -28,7 +29,8 @@ namespace RankInAll.Storage.OnlineContest
         {
             var user = provider.GetProfile(userName);
             //把ur.Rating更新到数据库里面
-            storage.UpdateTopcoder(user);
+            if (user != null)
+                storage.UpdateTopcoder(user);
         }
     }
 }

@@ -58,6 +58,8 @@ namespace RankInAll.Core.OnlineContest.Codeforces
         /// <returns></returns>
         public User GetProfile(string user_id)
         {
+            if (user_id == null)
+                return null;
             User user = new User();
             user.UserName = user_id.Trim().ToLower();
 

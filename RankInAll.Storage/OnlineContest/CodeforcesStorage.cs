@@ -20,7 +20,8 @@ namespace RankInAll.Storage.OnlineContest
             {
                 var user = cf.GetProfile(userName);
                 //把ur.Rating更新到数据库里面
-                storage.UpdateCodeforce(user);
+                if (user != null)
+                    storage.UpdateCodeforce(user);
             }
         }
 
@@ -28,7 +29,8 @@ namespace RankInAll.Storage.OnlineContest
         {
             var user = provider.GetProfile(userName);
             //把ur.Rating更新到数据库里面
-            storage.UpdateCodeforce(user);
+            if (user != null)
+                storage.UpdateCodeforce(user);
         }
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace RankInAll.Storage.OnlineContest
         void AddContestInfo(int constent_id)
         {
             //目前能抓到type="cf"  url  name  div 暂时抓不到data
-            CfContestInfo info= provider.GetContestInfo(constent_id);
+            CfContestInfo info = provider.GetContestInfo(constent_id);
             //存入数据库
             //save info
         }
@@ -67,7 +69,7 @@ namespace RankInAll.Storage.OnlineContest
         /// <summary>
         /// 批量增加cf比赛信息和比赛结果
         /// </summary>
-        void AddContestsAndResult(int from,int to)
+        void AddContestsAndResult(int from, int to)
         {
             if (from >= to)
             {
@@ -83,6 +85,6 @@ namespace RankInAll.Storage.OnlineContest
         }
 
 
-        
+
     }
 }

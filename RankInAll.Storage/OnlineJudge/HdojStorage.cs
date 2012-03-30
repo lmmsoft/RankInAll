@@ -31,8 +31,8 @@ namespace RankInAll.Storage.OnlineJudge
                 //debug
                 //if (item.Ac > 19)
                 //    continue;
-                if (item.Ac <= 5)
-                    break;
+                //if (item.Ac <= 5)
+                //    break;
                 ////转换格式
                 //realtime = TransferRealtime(item);
 
